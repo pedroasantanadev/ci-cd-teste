@@ -1,0 +1,18 @@
+name: Teste CI
+on:
+  push:
+    branches: [ "main" ] # Dispara quando há um push para a branch 'main'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4 # Baixa o seu código para o servidor do GitHub Actions
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x" # Instala a última versão 3 do Python
+
+      - name: Executar script
+        run: python main.py # Executa o script
